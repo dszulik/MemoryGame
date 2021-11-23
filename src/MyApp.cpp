@@ -1,6 +1,7 @@
 #include "MyApp.h"
+#include <iostream>
 
-#define WINDOW_WIDTH  1280
+#define WINDOW_WIDTH  720
 #define WINDOW_HEIGHT 720
 
 MyApp::MyApp() {
@@ -30,8 +31,8 @@ MyApp::MyApp() {
   ///
   /// Load a page into our overlay's View
   ///
-  overlay_->view()->LoadURL("file:///app.html");
-
+  overlay_->view()->LoadURL("file:///menu_start.html");
+  
   ///
   /// Register our MyApp instance as an AppListener so we can handle the
   /// App's OnUpdate event below.
@@ -103,6 +104,7 @@ void MyApp::OnDOMReady(ultralight::View* caller,
   ///
   /// This is the best time to setup any JavaScript bindings.
   ///
+  overlay_->view()->EvaluateScript("ShowMessage('XDXDXD')");
 }
 
 void MyApp::OnChangeCursor(ultralight::View* caller,

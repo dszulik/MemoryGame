@@ -47,4 +47,5 @@ protected:
   RefPtr<App> app_;
   RefPtr<Window> window_;
   RefPtr<Overlay> overlay_;
+  RefPtr<View> view_;
 };
