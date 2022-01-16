@@ -43,6 +43,10 @@ public:
   virtual void OnChangeTitle(ultralight::View* caller,
     const String& title) override;
 
+  JSValueRef OnButtonClick(JSContextRef ctx, JSObjectRef function,
+  JSObjectRef thisObject, size_t argumentCount, 
+  const JSValueRef arguments[], JSValueRef* exception);
+  
 protected:
   RefPtr<App> app_;
   RefPtr<Window> window_;

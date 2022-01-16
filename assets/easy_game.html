@@ -15,6 +15,10 @@
       text-align: center;
       background-color:#83c5be;
     }
+    .checked{
+      background-color:red;
+    }
+    
     </style>
     <script src="https://kit.fontawesome.com/fa9607c783.js" crossorigin="anonymous"></script>
   </head>
@@ -28,4 +32,14 @@
       <i class="fab fa-firefox fa-3x" id="dot"></i>
       <i class="fab fa-github fa-3x" id="dot"></i>
   </body>
+  <script>
+      function klikniete(){
+        var listItems = document.getElementsByTagName('i');
+        for(var i = 0; i < listItems.length; i++) {
+          listItems[i].onclick = function() {
+            this.classList.toggle('checked');
+          }
+      }};
+      setInterval(klikniete(),10)
+  </script>
 </html>

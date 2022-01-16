@@ -25,7 +25,6 @@ MyApp::MyApp() {
 
   ///
   /// Force a call to OnResize to perform size/layout of our overlay.
-  ///
   OnResize(window_.get(), window_->width(), window_->height());
 
   ///
@@ -95,7 +94,7 @@ void MyApp::OnFinishLoading(ultralight::View* caller,
   ///
 }
 
-void MyApp::OnDOMReady(ultralight::View* caller,
+void MyApp::OnDOMReady(View* caller,
                        uint64_t frame_id,
                        bool is_main_frame,
                        const String& url) {
@@ -104,16 +103,24 @@ void MyApp::OnDOMReady(ultralight::View* caller,
   ///
   /// This is the best time to setup any JavaScript bindings.
   ///
-  overlay_->view()->EvaluateScript("ShowMessage('XDXDXD')");
+  overlay_->view()->EvaluateScript("ShowMessage('WYJSCIE')");
+  overlay_->view()->EvaluateScript("Start('START')");
+  overlay_->view()->EvaluateScript("GameName('Memory Game')");
+
+  Ref<JSContext> context = caller->LockJSContext();
+  JSContextRef ctx = context.get();
+  JSStringRef name = JSStringCreateWithUTF8CString("OnButtonClick");
+  JSObjectRef func = JSObjectMakeFunctionWithCallback(ctx, name, OnButtonClick);
+  JSObjectRef globalObj = JSContextGetGlobalObject(ctx);
+  JSObjectSetProperty(ctx, globalObj, name, func, 0, 0);
+  JSStringRelease(name);
 }
 
 void MyApp::OnChangeCursor(ultralight::View* caller,
                            Cursor cursor) {
-  ///
   /// This is called whenever the page requests to change the cursor.
-  ///
+
   /// We update the main window's cursor here.
-  ///
   window_->SetCursor(cursor);
 }
 
@@ -125,4 +132,33 @@ void MyApp::OnChangeTitle(ultralight::View* caller,
   /// We update the main window's title here.
   ///
   window_->SetTitle(title.utf8().data());
+}
+
+JSValueRef OnButtonClick(JSContextRef ctx, JSObjectRef function,
+  JSObjectRef thisObject, size_t argumentCount, 
+  const JSValueRef arguments[], JSValueRef* exception) {
+
+  const char* str = 
+    "document.getElementById('result').innerText = 'Ultralight rocks!'";
+  
+  // Create our string of JavaScript
+  JSStringRef script = JSStringCreateWithUTF8CString(str);
+
+  // Execute it with JSEvaluateScript, ignoring other parameters for now
+  JSEvaluateScript(ctx, script, 0, 0, 0, 0);
+
+  // Release our string (we only Release what we Create)
+  JSStringRelease(script);
+
+  return JSValueMakeNull(ctx);
+}
+JSValueRef MyCallback(JSContextRef ctx, JSObjectRef function,
+  JSObjectRef thisObject, size_t argumentCount, 
+  const JSValueRef arguments[], JSValueRef* exception) {
+  
+  // Handle JavaScript arguments in our C callback here...
+  
+  // Optionally return a value back to JavaScript
+  
+  return JSValueMakeNull(ctx);
 }
