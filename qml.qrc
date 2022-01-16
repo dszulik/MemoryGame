@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>start.qml</file>
+        <file>game.qml</file>
+    </qresource>
+</RCC>
