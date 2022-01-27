@@ -21,6 +21,6 @@ signals:
 
 private:
     QColor m_color;
-};
+    };
 
 #endif // CIRCLE_ITEM_H

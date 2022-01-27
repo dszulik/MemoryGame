@@ -1,5 +1,6 @@
 #include <QPainter>
 #include "circle_item.h"
+#include <vector>
 
 CircleItem::CircleItem(QQuickItem *parent)
     : QQuickPaintedItem(parent)
@@ -9,16 +10,13 @@ CircleItem::CircleItem(QQuickItem *parent)
 void CircleItem::paint(QPainter *painter)
 {
     painter->save();
-
     QPen pen = painter->pen();
     pen.setBrush(m_color);
     pen.setWidth(3);
     painter->setPen(pen);
     painter->setBackground(m_color);
     painter->setBrush(QBrush(m_color));
-
     painter->drawEllipse(10, 10, 70, 70);
-
     painter->restore();
 }
 
@@ -35,4 +33,3 @@ void CircleItem::setColor(const QColor &newColor)
         emit colorChanged();
     }
 }
-

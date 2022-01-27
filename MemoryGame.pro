@@ -6,6 +6,7 @@ QT += quick
 
 SOURCES += \
     circle_item.cpp \
+    dataobject.cpp \
     start.cpp
 
 RESOURCES += qml.qrc \
@@ -23,4 +24,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    circle_item.h
+    circle_item.h \
+    dataobject.h
