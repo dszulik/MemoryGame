@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 6.0.0, 2022-01-23T20:23:47. -->
+<!-- Written by QtCreator 6.0.0, 2022-01-27T16:52:58. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -100,8 +100,8 @@
    <value type="qlonglong" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
     <value type="int" key="EnableQmlDebugging">0</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/Users/dominikaszulik/Desktop/Projekt Qt/MemoryGame/build-MemoryGame-Qt_6_2_2_for_macOS-Debug</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">/Users/dominikaszulik/Desktop/Projekt Qt/MemoryGame/build-MemoryGame-Qt_6_2_2_for_macOS-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/Users/dominikaszulik/Desktop/Projekt Qt/build-MemoryGame-Qt_6_2_2_for_macOS-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">/Users/dominikaszulik/Desktop/Projekt Qt/build-MemoryGame-Qt_6_2_2_for_macOS-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -137,6 +137,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Debug</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4BuildConfiguration</value>
     <value type="int" key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration">2</value>
+    <value type="int" key="SeparateDebugInfo">0</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/Users/dominikaszulik/Desktop/Projekt Qt/MemoryGame/build-MemoryGame-Qt_6_2_2_for_macOS-Release</value>
@@ -249,7 +250,7 @@
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/Users/dominikaszulik/Desktop/Projekt Qt/MemoryGame/build-MemoryGame-Qt_6_2_2_for_macOS-Debug/MemoryGame.app/Contents/MacOS</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/Users/dominikaszulik/Desktop/Projekt Qt/build-MemoryGame-Qt_6_2_2_for_macOS-Debug/MemoryGame.app/Contents/MacOS</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
