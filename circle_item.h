@@ -6,8 +6,7 @@
 class CircleItem : public QQuickPaintedItem
 {
     Q_OBJECT
-    Q_PROPERTY(QColor color READ color
-               WRITE setColor NOTIFY colorChanged)
+    Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
 
 public:
     explicit CircleItem(QQuickItem *parent = nullptr);
@@ -15,6 +14,7 @@ public:
 //<-- slide
     QColor color() const;
     void setColor(const QColor &newColor);
+    //bool event(QEvent *event) override;
 
 signals:
     void colorChanged();

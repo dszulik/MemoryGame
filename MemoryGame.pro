@@ -7,6 +7,7 @@ QT += quick
 SOURCES += \
     circle_item.cpp \
     dataobject.cpp \
+    gamelogic.cpp \
     start.cpp
 
 RESOURCES += qml.qrc \
@@ -25,4 +26,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     circle_item.h \
-    dataobject.h
+    dataobject.h \
+    gamelogic.h

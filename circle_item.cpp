@@ -1,6 +1,7 @@
 #include <QPainter>
 #include "circle_item.h"
 #include <vector>
+#include <iostream>
 
 CircleItem::CircleItem(QQuickItem *parent)
     : QQuickPaintedItem(parent)
