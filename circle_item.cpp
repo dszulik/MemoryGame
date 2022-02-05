@@ -28,7 +28,8 @@ QColor CircleItem::color() const
 
 void CircleItem::setColor(const QColor &newColor)
 {
-    if (m_color != newColor) {
+    if (m_color != newColor)
+    {
         m_color = newColor;
         update();
         emit colorChanged();

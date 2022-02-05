@@ -11,16 +11,16 @@ class CircleItem : public QQuickPaintedItem
 public:
     explicit CircleItem(QQuickItem *parent = nullptr);
     void paint(QPainter *painter) override;
-//<-- slide
+    //<-- slide
     QColor color() const;
     void setColor(const QColor &newColor);
-    //bool event(QEvent *event) override;
+    // bool event(QEvent *event) override;
 
 signals:
     void colorChanged();
 
 private:
     QColor m_color;
-    };
+};
 
 #endif // CIRCLE_ITEM_H
