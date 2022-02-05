@@ -24,9 +24,11 @@ private:
 signals: // signals are sent from C++ to QML
     void counterChanged();
     void pointsChanged(QString xd);
+    void win();
 
 public slots: // slots are public methods available in QML
     void checkVisibility(QList<QObject *> model);
+    void restart(QList<QObject *> model);
 };
 
 #endif // GAMELOGIC_H

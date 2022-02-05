@@ -1,11 +1,11 @@
 #include "gamelogic.h"
 #include <QDebug>
 #include <iostream>
-#include <ostream>
 #include "dataobject.h"
 #include <QtQuick/qquickitem.h>
 #include <QtQuick/qquickview.h>
 #include <vector>
+#include <random>
 
 using namespace std;
 
@@ -71,6 +71,11 @@ void GameLogic::checkVisibility(QList<QObject *> model)
             }
         }
     }
+
+    if (points() == 16) {
+        emit win();
+        setPoints(0);
+    }
 }
 
 int GameLogic::counter() const
@@ -99,4 +104,25 @@ void GameLogic::setPoints(int value)
         m_points = value;
         emit pointsChanged(QString::number(m_points / 2));
     }
+}
+
+void GameLogic::restart(QList<QObject *> model)
+{
+    for (int j = 0; j < model.size(); j++)
+    {
+        DataObject *obj = qobject_cast<DataObject *>(model[j]);
+        obj->setFlippedToFalse(obj->flipped());
+        obj->setIsWin("unmatched");
+        obj->setColBack("#F0A53E");
+    }
+
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(model.begin(), model.end(), g); //shuffling tiles
+
+//    for (int i = 0; i < 16; i++)
+//    {
+//        DataObject *obj = qobject_cast<DataObject *>(model[i]);
+//        obj->setName(QString::number(i));
+//    }
 }

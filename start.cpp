@@ -1,13 +1,8 @@
 #include <QGuiApplication>
 #include <iostream>
-#include <string>
-#include <vector>
 #include <random>
-#include <qqmlengine.h>
-#include <qqmlcontext.h>
-#include <qqml.h>
-#include <QtQuick/qquickitem.h>
-#include <QtQuick/qquickview.h>
+#include <QQmlContext>
+#include <QQmlApplicationEngine>
 #include "circle_item.h"
 #include "dataobject.h"
 #include "gamelogic.h"
@@ -16,6 +11,7 @@ int main(int argc, char ** argv)
 {
     QGuiApplication app(argc, argv);
     qmlRegisterType<CircleItem>("Shapes", 1, 0, "Ellipse");
+    QQmlApplicationEngine engine;
 
     QList<QObject *> dataList = {
         new DataObject("0", "qrc:/images/1.png", false, "unmatched", "#374759", "#F0A53E"),
@@ -36,20 +32,26 @@ int main(int argc, char ** argv)
         new DataObject("15", "qrc:/images/8.png", false, "unmatched", "#374759", "#F0A53E")
     };
 
-    QQuickView view;
-    view.setResizeMode(QQuickView::SizeRootObjectToView);
-
     std::random_device rd;
     std::mt19937 g(rd());
-//    std::shuffle(dataList.begin(), dataList.end(), g); //shuffling tiles
+    std::shuffle(dataList.begin(), dataList.end(), g); //shuffling tiles
+
+    for (int i = 0; i < 16; i++)
+    {
+        DataObject *obj = qobject_cast<DataObject *>(dataList[i]);
+        obj->setName(QString::number(i));
+    }
 
     GameLogic* gameLogic = new GameLogic();
-    view.rootContext()->setContextProperty("_gameLogic", gameLogic);
-    view.rootContext()->setContextProperty("_model", QVariant::fromValue(dataList));
-    view.setInitialProperties({{"model", QVariant::fromValue(dataList)}});
+    engine.rootContext()->setContextProperty("_gameLogic", gameLogic);
+    engine.rootContext()->setContextProperty("_model", QVariant::fromValue(dataList));
+    engine.setInitialProperties({{"model", QVariant::fromValue(dataList)}});
 
-    view.setSource(QUrl("qrc:/game.qml"));
-    view.show();
+    engine.load(QUrl(QStringLiteral("qrc:/game.qml")));
+    if (engine.rootObjects().isEmpty())
+    {
+        QCoreApplication::exit(-1);
+    }
 
     return app.exec();
 }
