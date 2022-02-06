@@ -15,7 +15,7 @@ Window{
     Connections {
         target: _gameLogic
         function onPointsChanged(xd) { pointy.text = xd }
-        function onWin() { popupItem.open(); pointsText = "0" }
+        function onWin() { popupItem.open() }
     }
 
     Popup {
@@ -71,6 +71,7 @@ Window{
                     anchors.fill: parent
                     onClicked: {
                         _gameLogic.restart(model)
+                        pointsText = "0"
                         popupItem.close()
                     }
                 }
@@ -127,6 +128,7 @@ Window{
                     anchors.fill: parent
                     onClicked: {
                         _gameLogic.restart(model)
+                        pointsText = "0"
                     }
                 }
             }

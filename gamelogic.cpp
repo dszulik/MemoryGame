@@ -74,7 +74,6 @@ void GameLogic::checkVisibility(QList<QObject *> model)
 
     if (points() == 16) {
         emit win();
-        setPoints(0);
     }
 }
 
@@ -108,6 +107,8 @@ void GameLogic::setPoints(int value)
 
 void GameLogic::restart(QList<QObject *> model)
 {
+    setPoints(0);
+
     for (int j = 0; j < model.size(); j++)
     {
         DataObject *obj = qobject_cast<DataObject *>(model[j]);
@@ -116,9 +117,9 @@ void GameLogic::restart(QList<QObject *> model)
         obj->setColBack("#F0A53E");
     }
 
-    std::random_device rd;
-    std::mt19937 g(rd());
-    std::shuffle(model.begin(), model.end(), g); //shuffling tiles
+//    std::random_device rd;
+//    std::mt19937 g(rd());
+//    std::shuffle(model.begin(), model.end(), g); //shuffling tiles
 
 //    for (int i = 0; i < 16; i++)
 //    {
