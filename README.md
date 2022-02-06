@@ -3,6 +3,10 @@
 
 My application is simple memory game, click circles to flip them and remember the image. Your goal is to find pairs of circles with the same image. The game will finish when you collect 8 points - one for each pair. 
 
+## Inspiration
+
+This application was written based on Frontend Mentor [challenge].
+
 ## Screenshots
 
 ![game](https://raw.githubusercontent.com/dszulik/MemoryGame/main/images/screenshots/game.png?raw=true)
@@ -30,3 +34,4 @@ GPL-3.0
 [QML]: <https://doc.qt.io/qt-5/qtqml-index.html>
 [git-repo-url]: <https://github.com/dszulik/MemoryGame.git>
 [MemoryGame]: <https://github.com/dszulik/MemoryGame>
+[challenge]: <https://www.frontendmentor.io/challenges/memory-game-vse4WFPvM>
